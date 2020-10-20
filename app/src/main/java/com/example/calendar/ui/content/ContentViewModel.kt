@@ -1,9 +1,9 @@
-package com.example.calendar.ui.main
+package com.example.calendar.ui.content
 
 import androidx.lifecycle.ViewModel
 import com.example.calendar.CalendarManager
 
-class MainViewModel(
+class ContentViewModel(
     private val calendarManager: CalendarManager
 ) : ViewModel() {
 

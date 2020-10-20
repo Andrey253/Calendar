@@ -1,7 +1,7 @@
 package com.example.calendar
 
 import android.app.Application
-import com.example.calendar.ui.main.MainViewModel
+import com.example.calendar.ui.content.ContentViewModel
 import org.koin.android.experimental.dsl.viewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +14,7 @@ class App : Application() {
 
     private val calendarModule = module {
         single<CalendarManager>()
-        viewModel<MainViewModel>()
+        viewModel<ContentViewModel>()
     }
 
     override fun onCreate() {

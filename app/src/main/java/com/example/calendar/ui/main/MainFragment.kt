@@ -1,77 +1,63 @@
 package com.example.calendar.ui.main
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.calendar.ExampleService
 import com.example.calendar.R
+import com.example.calendar.ui.broadcast.BroadcastFragment
+import com.example.calendar.ui.content.ContentFragment
+import com.example.calendar.ui.navigation.NavigationFragment
+import com.example.calendar.ui.second.SecondActivity
+import com.example.calendar.ui.service.ServiceFragment
 import kotlinx.android.synthetic.main.main_fragment.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
     companion object {
 
         fun newInstance() = MainFragment()
-        const val REQUEST_CODE = 123
     }
 
-    private val viewModel: MainViewModel by viewModel()
-
     override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        calendarButton.setOnClickListener { message.text = viewModel.getCalendars() }
-        eventButton.setOnClickListener { message.text = viewModel.insertEvent() }
-        deleteButton.setOnClickListener {
-            message.text = if (viewModel.deleteEvent()) {
-                "удален"
-            } else {
-                "не удален"
-            }
+        explicitButton.setOnClickListener { explicitIntent() }
+        implicitButton.setOnClickListener { implicitIntent() }
+        navigationButton.setOnClickListener { openFragment(NavigationFragment.newInstance(0)) }
+        providerButton.setOnClickListener { openFragment(ContentFragment.newInstance()) }
+        serviceButton.setOnClickListener { openFragment(ServiceFragment.newInstance()) }
+        broadcastButton.setOnClickListener { openFragment(BroadcastFragment.newInstance()) }
+    }
+
+    private fun explicitIntent() {
+        val intent = Intent(context, SecondActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        }
+        startActivity(intent)
+    }
+
+    private fun implicitIntent() {
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
         }
 
-        if (!checkCalendarPermission()) {
-            askPermission(Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR)
-        } else {
-            calendarButton.isEnabled = true
-            eventButton.isEnabled = true
-            deleteButton.isEnabled = true
-        }
-
-        context?.startService(Intent(context, ExampleService::class.java))
+        startActivity(intent)
     }
 
-    private fun askPermission(vararg permissions: String) {
-        requestPermissions(permissions, REQUEST_CODE)
-    }
-
-    private fun checkCalendarPermission(): Boolean {
-        return PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
-			context!!,
-			Manifest.permission.READ_CALENDAR
-		)
-    }
-
-    override fun onRequestPermissionsResult(
-		requestCode: Int,
-		permissions: Array<out String>,
-		grantResults: IntArray
-	) {
-        calendarButton.isEnabled = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-        eventButton.isEnabled = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-        deleteButton.isEnabled = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
+    private fun openFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

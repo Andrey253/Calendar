@@ -9,15 +9,12 @@ import androidx.fragment.app.Fragment
 import com.example.calendar.ExampleService
 import com.example.calendar.R
 import kotlinx.android.synthetic.main.service_fragment.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class ServiceFragment : Fragment() {
 
     companion object {
         fun newInstance() = ServiceFragment()
     }
-
-    private val viewModel: ServiceViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
