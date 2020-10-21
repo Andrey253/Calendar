@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.calendar.R
+import com.example.calendar.base.BaseFragment
 import com.example.calendar.ui.broadcast.BroadcastFragment
 import com.example.calendar.ui.content.ContentFragment
 import com.example.calendar.ui.navigation.NavigationFragment
@@ -14,7 +15,7 @@ import com.example.calendar.ui.second.SecondActivity
 import com.example.calendar.ui.service.ServiceFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment() {
 
     companion object {
 
@@ -41,6 +42,7 @@ class MainFragment : Fragment() {
     private fun explicitIntent() {
         val intent = Intent(context, SecondActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            putExtra(SecondActivity.EXTRA_TEXT, "explicit intent")
         }
         startActivity(intent)
     }
@@ -49,6 +51,7 @@ class MainFragment : Fragment() {
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
             type = "text/plain"
+            putExtra(SecondActivity.EXTRA_TEXT, "implicit intent")
         }
 
         startActivity(intent)
@@ -56,7 +59,7 @@ class MainFragment : Fragment() {
 
     private fun openFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
-            .add(R.id.container, fragment)
+            .replace(R.id.container, fragment)
             .addToBackStack(null)
             .commit()
     }

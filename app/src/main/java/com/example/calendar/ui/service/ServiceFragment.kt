@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.calendar.ExampleService
 import com.example.calendar.R
+import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.service_fragment.*
 
-class ServiceFragment : Fragment() {
+class ServiceFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = ServiceFragment()

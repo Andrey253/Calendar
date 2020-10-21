@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.example.calendar.ExampleService
 import com.example.calendar.R
+import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.content_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ContentFragment : Fragment() {
+class ContentFragment : BaseFragment() {
 
     companion object {
 
@@ -25,9 +25,9 @@ class ContentFragment : Fragment() {
     private val viewModel: ContentViewModel by viewModel()
 
     override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.content_fragment, container, false)
     }
 

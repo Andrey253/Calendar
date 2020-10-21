@@ -8,12 +8,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.calendar.R
+import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.broadcast_fragment.*
-import java.lang.Exception
 
-class BroadcastFragment : Fragment() {
+class BroadcastFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = BroadcastFragment()

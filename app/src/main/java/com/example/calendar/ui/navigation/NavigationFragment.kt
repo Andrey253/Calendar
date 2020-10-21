@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.calendar.R
+import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.navigation_fragment.*
 
-class NavigationFragment : Fragment() {
+class NavigationFragment : BaseFragment() {
 
     companion object {
         const val COUNT = "count"
