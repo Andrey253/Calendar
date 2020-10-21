@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".ui.content.ContentFragment">
+
+    <RadioGroup
+        android:id="@+id/stateGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <RadioButton
+            android:id="@+id/noSaveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="без сохранения стейта" />
+
+        <RadioButton
+            android:id="@+id/instantStateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="onSaveInstantState" />
+
+        <RadioButton
+            android:id="@+id/viewModelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="view model" />
+
+        <RadioButton
+            android:id="@+id/viewModelWithStateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="view model with state" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="some text here" />
+
+</LinearLayout>

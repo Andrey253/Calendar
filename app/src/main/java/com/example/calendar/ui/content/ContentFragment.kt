@@ -12,7 +12,7 @@ import com.example.calendar.ExampleService
 import com.example.calendar.R
 import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.content_fragment.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ContentFragment : BaseFragment() {
 

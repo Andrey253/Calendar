@@ -13,6 +13,7 @@ import com.example.calendar.ui.content.ContentFragment
 import com.example.calendar.ui.navigation.NavigationFragment
 import com.example.calendar.ui.second.SecondActivity
 import com.example.calendar.ui.service.ServiceFragment
+import com.example.calendar.ui.state.StateFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : BaseFragment() {
@@ -34,6 +35,7 @@ class MainFragment : BaseFragment() {
         explicitButton.setOnClickListener { explicitIntent() }
         implicitButton.setOnClickListener { implicitIntent() }
         navigationButton.setOnClickListener { openFragment(NavigationFragment.newInstance(0)) }
+        stateButton.setOnClickListener { openFragment(StateFragment.newInstance()) }
         providerButton.setOnClickListener { openFragment(ContentFragment.newInstance()) }
         serviceButton.setOnClickListener { openFragment(ServiceFragment.newInstance()) }
         broadcastButton.setOnClickListener { openFragment(BroadcastFragment.newInstance()) }
