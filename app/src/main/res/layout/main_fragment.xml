@@ -8,11 +8,11 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/explicitButton"
+        android:id="@+id/call_A_Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Explicit intent" />
+        android:text="Activity A" />
 
     <Button
         android:id="@+id/implicitButton"
