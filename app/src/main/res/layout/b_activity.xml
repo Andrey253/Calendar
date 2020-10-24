@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/contentFrameA">
+    android:id="@+id/contentFrameB">
 
     <FrameLayout
 
@@ -11,18 +11,18 @@
         android:layout_margin="8dp">
 
         <TextView
-            android:id="@+id/AView"
+            android:id="@+id/BView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="A activity" />
+            android:gravity="left"
+            android:text="B activity" />
 
         <Button
-            android:id="@+id/toBactivity"
+            android:id="@+id/toCactivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="205dp"
             android:layout_margin="8dp"
-            android:text="in B Activity" />
+            android:text="in C Activity" />
     </FrameLayout>
 
 

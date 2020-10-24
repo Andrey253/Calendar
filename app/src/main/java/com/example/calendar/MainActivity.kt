@@ -2,8 +2,9 @@ package com.example.calendar
 
 import android.os.Bundle
 import com.example.calendar.base.BaseActivity
-import com.example.calendar.ui.main.MainFragment
 import com.example.calendar.ui.navigation.NavigationFragment
+import com.example.calendar.ui.second.AFragment
+import com.example.calendar.ui.second.BFragment
 
 class MainActivity : BaseActivity() {
 
@@ -13,15 +14,16 @@ class MainActivity : BaseActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, AFragment.newInstance())
                 .commit()
         }
     }
 
 
     override fun onBackPressed() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.container)
-        if (fragment is NavigationFragment) {
+        val fragment = supportFragmentManager.findFragmentById(R.id.contentFrameB)
+
+        if (fragment is BFragment) {
             fragment.onBackPressed()
             return
         }

@@ -11,7 +11,7 @@ import com.example.calendar.base.BaseFragment
 import com.example.calendar.ui.broadcast.BroadcastFragment
 import com.example.calendar.ui.content.ContentFragment
 import com.example.calendar.ui.navigation.NavigationFragment
-import com.example.calendar.ui.abcActivity.AActivity
+import com.example.calendar.ui.second.AFragment
 import com.example.calendar.ui.service.ServiceFragment
 import com.example.calendar.ui.state.StateFragment
 import kotlinx.android.synthetic.main.main_fragment.*
@@ -32,7 +32,7 @@ class MainFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        call_A_Button.setOnClickListener { activityAIntent() }//эклипс
+        abcButton.setOnClickListener { abcIntent() }
         implicitButton.setOnClickListener { implicitIntent() }
         navigationButton.setOnClickListener { openFragment(NavigationFragment.newInstance(0)) }
         stateButton.setOnClickListener { openFragment(StateFragment.newInstance()) }
@@ -41,10 +41,10 @@ class MainFragment : BaseFragment() {
         broadcastButton.setOnClickListener { openFragment(BroadcastFragment.newInstance()) }
     }
 
-    private fun activityAIntent() {
-        val intent = Intent(context, AActivity::class.java).apply {
+    private fun abcIntent() {
+        val intent = Intent(context, AFragment::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            putExtra(AActivity.A_TEXT, "A activity from MainFragment")
+            putExtra(AFragment.EXTRA_TEXT, "ABC intent")
         }
         startActivity(intent)
     }
@@ -53,7 +53,7 @@ class MainFragment : BaseFragment() {
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
             type = "text/plain"
-            putExtra(AActivity.A_TEXT, "implicit intent")
+            putExtra(AFragment.EXTRA_TEXT, "implicit intent")
         }
 
         startActivity(intent)

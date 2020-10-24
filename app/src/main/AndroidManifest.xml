@@ -21,7 +21,7 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".ui.abcActivity.AActivity"
+		<activity android:name=".ui.second.AFragment"
 			android:launchMode="singleTask" >
 			<intent-filter>
 				<action android:name="android.intent.action.SEND"/>
