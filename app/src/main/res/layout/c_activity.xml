@@ -14,13 +14,13 @@
             android:id="@+id/CView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="right"
+            android:gravity="center"
             android:text="C activity" />
 
         <Button
             android:id="@+id/toAactivity"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="100dp"
             android:layout_margin="8dp"
             android:text="in A Activity" />
     </FrameLayout>

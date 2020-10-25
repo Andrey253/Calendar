@@ -32,8 +32,8 @@ class CFragment : BaseFragment() {
 
     }
     private fun openFragment() {
-        childFragmentManager.beginTransaction()
-                .replace(R.id.contentFrameC, AFragment.newInstance())
+        parentFragmentManager.beginTransaction()
+                .replace(R.id.container, AFragment.newInstance())
                 .addToBackStack(null)
                 .commit()
     }

@@ -34,12 +34,13 @@ class BFragment : BaseFragment() {
 
     }
     private fun openFragment() {
-        childFragmentManager.beginTransaction()
-                .replace(R.id.contentFrameB, CFragment.newInstance())
+        parentFragmentManager.beginTransaction()
+                .replace(R.id.container, CFragment.newInstance())
                 .addToBackStack(null)
                 .commit()
     }
     fun onBackPressed() {
+        println("mytag this is BFragment");
         val fragment = childFragmentManager.findFragmentById(R.id.container)
 
         if (fragment != null && fragment is BFragment) {

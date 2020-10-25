@@ -2,9 +2,7 @@ package com.example.calendar
 
 import android.os.Bundle
 import com.example.calendar.base.BaseActivity
-import com.example.calendar.ui.navigation.NavigationFragment
 import com.example.calendar.ui.second.AFragment
-import com.example.calendar.ui.second.BFragment
 
 class MainActivity : BaseActivity() {
 
@@ -19,12 +17,12 @@ class MainActivity : BaseActivity() {
         }
     }
 
-
     override fun onBackPressed() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.contentFrameB)
 
-        if (fragment is BFragment) {
-            fragment.onBackPressed()
+        val fragment = supportFragmentManager.findFragmentById(R.id.container)
+        println("mytag: fragment is $fragment");
+        if (fragment is AFragment) {
+            finish()
             return
         }
         super.onBackPressed()
