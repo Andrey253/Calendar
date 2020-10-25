@@ -3,6 +3,8 @@ package com.example.calendar
 import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -15,9 +17,11 @@ import java.util.concurrent.TimeUnit
 
 class ExampleService : Service() {
 
-    private companion object {
+     companion object {
         const val DEFAULT_CHANNEL_ID = "0"
         const val REQUEST_CODE = 111
+        var c: Int = 0
+
     }
 
     private val executorService = Executors.newSingleThreadScheduledExecutor()
@@ -37,11 +41,14 @@ class ExampleService : Service() {
 
     private fun startNotifications(handler: Handler) {
         var count = 0
+
         future = executorService.scheduleAtFixedRate({
             val notification = buildNotification(count)
             handler.post {
                 notificationManager.notify(REQUEST_CODE, notification)
                 count++
+                c = count
+                println("mytag Сервис работает $count");
             }
         }, 0, 1, TimeUnit.SECONDS)
     }
