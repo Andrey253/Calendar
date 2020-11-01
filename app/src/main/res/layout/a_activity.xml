@@ -20,6 +20,27 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Service" />
+    <Button
+        android:id="@+id/broadcastButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Broadcast" />
+
+    <Button
+        android:id="@+id/startButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="создать броадкаст"/>
+
+    <Button
+        android:id="@+id/stopButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="остановить броадкаст" />
+
     <TextView
         android:id="@+id/AView"
         android:layout_width="match_parent"

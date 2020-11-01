@@ -1,5 +1,6 @@
 package com.example.calendar
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.calendar.base.BaseActivity
 import com.example.calendar.ui.second.AFragment
@@ -15,6 +16,12 @@ class MainActivity : BaseActivity() {
                 .replace(R.id.container, AFragment.newInstance())
                 .commit()
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        println("mytag получили Intent $intent");
+        super.onNewIntent(intent)
+
     }
 
     override fun onBackPressed() {

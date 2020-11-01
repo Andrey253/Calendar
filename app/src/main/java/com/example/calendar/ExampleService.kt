@@ -3,13 +3,14 @@ package com.example.calendar
 import android.app.*
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.SharedPreferences.Editor
+import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import androidx.core.app.NotificationCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.calendar.ui.second.AFragment
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
@@ -49,6 +50,9 @@ class ExampleService : Service() {
                 count++
                 c = count
                 println("mytag Сервис работает $count");
+                val pushIntent = Intent(this, MainActivity::class.java)
+                pushIntent.putExtra("count", 5)
+                LocalBroadcastManager.getInstance(this).sendBroadcast(pushIntent)
             }
         }, 0, 1, TimeUnit.SECONDS)
     }

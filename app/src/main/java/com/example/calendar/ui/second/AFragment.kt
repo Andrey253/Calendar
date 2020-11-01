@@ -1,5 +1,6 @@
 package com.example.calendar.ui.second
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.calendar.ExampleService
 import com.example.calendar.R
 import com.example.calendar.base.BaseFragment
+import com.example.calendar.ui.broadcast.BroadcastFragment
 import com.example.calendar.ui.navigation.NavigationFragment
 import com.example.calendar.ui.service.ServiceFragment
 import kotlinx.android.synthetic.*
@@ -36,6 +38,7 @@ class AFragment : BaseFragment() {
 
         toBactivity.setOnClickListener { openFragment(BFragment.newInstance()) }
         serviceButton.setOnClickListener { openFragment(ServiceFragment.newInstance()) }
+        broadcastButton2.setOnClickListener { openFragment(BroadcastFragment.newInstance()) }
         AView.text = "Значение из счетчика в сервисе ${ExampleService.c.toString()}"
     }
     private fun openFragment(fragment: Fragment) {
@@ -43,6 +46,11 @@ class AFragment : BaseFragment() {
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
                 .commit()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        println("mytag получили Intent $data");
     }
 
     fun onBackPressed() {
