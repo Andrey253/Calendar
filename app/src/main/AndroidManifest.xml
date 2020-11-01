@@ -21,17 +21,9 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".ui.second.AFragment"
-			android:launchMode="singleTask" >
-			<intent-filter>
-				<action android:name="android.intent.action.SEND"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-				<data android:mimeType="text/plain"/>
-			</intent-filter>
 
-		</activity>
 
-		<service android:name=".ExampleService" />
+		<service android:name="com.example.calendar.service.ExampleService" />
 	</application>
 
 </manifest>

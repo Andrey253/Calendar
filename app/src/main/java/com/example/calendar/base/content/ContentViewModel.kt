@@ -1,4 +1,4 @@
-package com.example.calendar.ui.content
+package com.example.calendar.base.content
 
 import androidx.lifecycle.ViewModel
 import com.example.calendar.CalendarManager

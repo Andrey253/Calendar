@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/afragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -20,31 +21,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Service" />
-    <Button
-        android:id="@+id/broadcastButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Broadcast" />
-
-    <Button
-        android:id="@+id/startButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="создать броадкаст"/>
-
-    <Button
-        android:id="@+id/stopButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="остановить броадкаст" />
 
     <TextView
         android:id="@+id/AView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="67dp"
         android:gravity="center"
         android:text="A activity" />
 

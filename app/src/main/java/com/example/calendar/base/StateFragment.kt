@@ -1,4 +1,4 @@
-package com.example.calendar.ui.state
+package com.example.calendar.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import com.example.calendar.R
-import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.state_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber

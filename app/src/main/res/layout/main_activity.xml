@@ -7,4 +7,10 @@
 	android:layout_height="match_parent"
 	android:background="@android:color/white"
 	tools:context=".MainActivity">
+	<TextView
+		android:id="@+id/a_act_textView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center|bottom"
+		android:text="" />
 </FrameLayout>

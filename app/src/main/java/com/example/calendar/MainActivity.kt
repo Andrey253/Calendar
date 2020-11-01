@@ -2,8 +2,9 @@ package com.example.calendar
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import com.example.calendar.base.BaseActivity
-import com.example.calendar.ui.second.AFragment
+import com.example.calendar.fragments.AFragment
 
 class MainActivity : BaseActivity() {
 
@@ -19,7 +20,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onNewIntent(intent: Intent?) {
-        println("mytag получили Intent $intent");
+        findViewById<TextView>(R.id.a_act_textView).text = "Счетчик из сервиса = ${intent?.getIntExtra("count", 0).toString()}"
         super.onNewIntent(intent)
 
     }
@@ -29,6 +30,7 @@ class MainActivity : BaseActivity() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
         println("mytag: fragment is $fragment");
         if (fragment is AFragment) {
+
             finish()
             return
         }

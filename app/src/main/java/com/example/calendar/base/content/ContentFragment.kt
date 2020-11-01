@@ -1,4 +1,4 @@
-package com.example.calendar.ui.content
+package com.example.calendar.base.content
 
 import android.Manifest
 import android.content.Intent
@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import com.example.calendar.ExampleService
+import com.example.calendar.service.ExampleService
 import com.example.calendar.R
 import com.example.calendar.base.BaseFragment
 import kotlinx.android.synthetic.main.content_fragment.*

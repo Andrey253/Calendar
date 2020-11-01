@@ -1,8 +1,8 @@
 package com.example.calendar
 
 import android.app.Application
-import com.example.calendar.ui.content.ContentViewModel
-import com.example.calendar.ui.state.StateViewModel
+import com.example.calendar.base.content.ContentViewModel
+import com.example.calendar.base.StateViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.experimental.dsl.viewModel

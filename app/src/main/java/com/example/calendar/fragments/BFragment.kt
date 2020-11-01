@@ -1,16 +1,12 @@
-package com.example.calendar.ui.second
+package com.example.calendar.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.calendar.R
 import com.example.calendar.base.BaseFragment
-import com.example.calendar.ui.navigation.NavigationFragment
-import kotlinx.android.synthetic.main.a_activity.*
-import kotlinx.android.synthetic.main.a_activity.toBactivity
-import kotlinx.android.synthetic.main.b_activity.*
+import kotlinx.android.synthetic.main.b_fragment.*
 
 
 class BFragment : BaseFragment() {
@@ -24,7 +20,7 @@ class BFragment : BaseFragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.b_activity, container, false)
+        return inflater.inflate(R.layout.b_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

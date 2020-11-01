@@ -1,4 +1,4 @@
-package com.example.calendar
+package com.example.calendar.service
 
 import android.app.*
 import android.content.Context
@@ -9,8 +9,8 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import androidx.core.app.NotificationCompat
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.calendar.ui.second.AFragment
+import com.example.calendar.MainActivity
+import com.example.calendar.R
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
@@ -21,8 +21,6 @@ class ExampleService : Service() {
      companion object {
         const val DEFAULT_CHANNEL_ID = "0"
         const val REQUEST_CODE = 111
-        var c: Int = 0
-
     }
 
     private val executorService = Executors.newSingleThreadScheduledExecutor()
@@ -48,11 +46,10 @@ class ExampleService : Service() {
             handler.post {
                 notificationManager.notify(REQUEST_CODE, notification)
                 count++
-                c = count
-                println("mytag Сервис работает $count");
-                val pushIntent = Intent(this, MainActivity::class.java)
-                pushIntent.putExtra("count", 5)
-                LocalBroadcastManager.getInstance(this).sendBroadcast(pushIntent)
+                 //println("mytag Сервис работает $count");
+                val intent = Intent(this, MainActivity::class.java).setFlags(FLAG_ACTIVITY_SINGLE_TOP)
+                intent.putExtra("count", count)
+                startActivity(intent)
             }
         }, 0, 1, TimeUnit.SECONDS)
     }
