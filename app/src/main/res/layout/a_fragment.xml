@@ -23,6 +23,7 @@
         android:text="Service" />
     <Button
         android:id="@+id/contactsbutton"
+        android:onClick="buttoncontacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
