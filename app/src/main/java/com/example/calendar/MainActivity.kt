@@ -39,8 +39,8 @@ class MainActivity : BaseActivity() {
         super.onBackPressed()
     }
 
-    fun buttoncontacts(view: View) {
-                startActivity(Intent(this, Contacts::class.java))
-    }
+//    fun buttoncontacts(view: View) {
+//                startActivity(Intent(this, Contacts::class.java))
+//    }
 
 }
